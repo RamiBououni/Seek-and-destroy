@@ -1,0 +1,23 @@
+function destroyer(arr) {
+
+  //turn arguments into an array
+  
+  var newArr = Array.from(arguments);
+  
+  for(i=0; i<newArr[0].length; i++){
+    for(j=1; j<newArr.length; j++){
+      if(newArr[0][i] == newArr[j]){
+        delete newArr[0][i];
+      }
+    }
+  }
+  
+  //filter the null values from the array and return only the true values
+  
+  return newArr[0].filter(function(value){
+    return Boolean(value);
+  });
+  
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
